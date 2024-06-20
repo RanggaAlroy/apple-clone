@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { highlightsSlides } from '../constants'; // Corrected import statement
 import gsap from 'gsap';
+import { pauseImg, playImg, replayImg } from '../utils';
 
 const VideoCarousel = () => {
     const videoRef = useRef([]);
@@ -44,6 +45,17 @@ const VideoCarousel = () => {
             });
         }
     }, [videoId, startPlay]);
+
+    const handleProcess = (type, i) => {
+        switch (key) {
+            case value:
+                
+                break;
+        
+            default:
+                break;
+        }
+    }
 
     return (
         <>
@@ -93,6 +105,13 @@ const VideoCarousel = () => {
                         </span>
                     ))}
                 </div>
+                <button className='control-btn'>
+                    <img
+                        src={isLastVideo ? replayImg : !isPlaying ? playImg : pauseImg }
+                        alt={isLastVideo ? 'replay' : !isPlaying ? 'play' : 'pause'}
+                        onClick={isLastVideo ? () => handleProcess('video-reset') : !isPlaying ? () => handleProcess('play') : () => handleProcess('pause')}
+                    />
+                </button>
             </div>
         </>
     );
