@@ -127,6 +127,12 @@ const VideoCarousel = () => {
                     isPlaying: !prev.isPlaying,
                 }));
                 break;
+            case 'pause':
+                setVideo((prev) => ({
+                    ...prev,
+                    isPlaying: !prev.isPlaying,
+                }));
+                break;
             default:
                 return video;
         }
@@ -154,7 +160,7 @@ const VideoCarousel = () => {
                                             isPlaying: true,
                                         }));
                                     }}
-                                    className="pointer-events-none"
+                                    className={`${list.id === 2 && 'translate-x-44'} pointer-events-none`}
                                     onLoadedMetadata={(e) => handleLoadedMetadata(i, e)}
                                 >
                                     <source src={list.video} type="video/mp4" />
